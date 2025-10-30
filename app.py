@@ -17,10 +17,13 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app, resources={r"/api/*": {  "origins": [
-        "https://emp-tracker-backend-1.onrender.com",  # your deployed frontend
-        "http://localhost:8000"  # keep for local dev
-    ]}})
+
+
+CORS(app, resources={r"/api/*": {"origins": [
+    "https://emp-tracker-backend-1.onrender.com",  # ✅ your deployed frontend on Render
+    "http://localhost:8000",                # ✅ for local testing
+    "http://localhost:3000"                 # ✅ optional for React dev server
+]}})
 # CORS(app, resources={r"/api/*": {
 #     "origins": [
 #         "https://emp-front-late.onrender.com",  # your deployed frontend

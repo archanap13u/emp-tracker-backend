@@ -17,11 +17,19 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app, resources={r"/api/*": {"origins": ["http://localhost:8000"]}})
-
+CORS(app, resources={r"/api/*": {  "origins": [
+        "https://emp-tracker-backend-1.onrender.com",  # your deployed frontend
+        "http://localhost:8000"  # keep for local dev
+    ]}})
+# CORS(app, resources={r"/api/*": {
+#     "origins": [
+#         "https://emp-front-late.onrender.com",  # your deployed frontend
+#         "http://localhost:8000"  # keep for local dev
+#     ]
+# }})
 # Configuration
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'your-secret-key-change-this-in-production')
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'sqlite:///employee_tracker.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'sqlite:///employee_tracker.db1')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)

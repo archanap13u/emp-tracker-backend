@@ -20,10 +20,12 @@ app = Flask(__name__)
 
 
 CORS(app, resources={r"/api/*": {"origins": [
-    "https://emp-tracker-backend-1.onrender.com",  # ✅ your deployed frontend on Render
+    "emp-tracker-frontend.vercel.app",  # ✅ your deployed frontend on Render
     "http://localhost:8000",                # ✅ for local testing
     "http://localhost:3000"                 # ✅ optional for React dev server
 ]}})
+
+# CORS(app, resources={r"/*": {"origins": "https://emp-tracker-frontend.vercel.app"}})
 # CORS(app, resources={r"/api/*": {
 #     "origins": [
 #         "https://emp-front-late.onrender.com",  # your deployed frontend
